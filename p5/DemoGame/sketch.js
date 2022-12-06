@@ -1,30 +1,19 @@
-var bubbles = [];
-
-
-
 function setup() {
-	createCanvas(windowWidth, windowHeight);
-	for (var i = 0; i < 1000; i++) {
-		bubbles[i] = {
-			x: random(0, width),
-			y: random(0, height),
-			display: function() {
-				stroke(random(255));
-				fill(random(0,255));
-				ellipse(this.x, this.y, 25, 25);
-			},
-			move: function() {
-				this.x = this.x + random(-1, 1);
-				this.y = this.y + random(-1, 1);
-			}
-		}
-	}
+	createCanvas(650, 900);
+	
 }
 
 function draw() {
-	background(0);
-	for (var i = 0; i < bubbles.length; i++) {
-		bubbles[i].move();
-		bubbles[i].display();
+	background(255);
+	for (var i = 0; i<width; i++){
+	var y = i%500;
+		line(100, 0, i, y*2);
+		line(0, 100, y*2, i);
+		
+		for(var i = 0; i < height; i++){
+		var y = i%500;
+		line(1080, 0, i, y*2.5);
+		line(0, 1080, i, y*2.5);
+		}
 	}
 }
